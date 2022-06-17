@@ -4,18 +4,21 @@ import NewNote from './NewNote';
 import { API_URL } from '../../define'
 function ListNotes(props) {
     const [notes, setNotes] = useState([])
+    const [loading, setLoading] = useState(false)
     const fetchNotes = async () => {
         let response = await axios.get(`${API_URL}/notes`)
         setNotes(response.data)
     }
     const deleteNote = async (id) => {
+        setLoading(true)
         await axios.delete(`${API_URL}/notes/${id}`)
         fetchNotes()
+        setLoading(false)
     }
     useEffect(() => {
         fetchNotes()
     }, [])
-    console.log(props);
+
     return (
         <div className="container">
             <div className="row justify-content-center">
@@ -35,7 +38,7 @@ function ListNotes(props) {
                                     <th scope="row">{++i}</th>
                                     <td>{item.content}</td>
                                     <td>{item.resource_type}</td>
-                                    <td> <button onClick={e => deleteNote(item.id)}>delete</button></td>
+                                    <td> <button onClick={e => deleteNote(item.id)} className={loading?'disabled':''}>delete</button></td>
                                 </tr>
                             })}
                         </tbody>

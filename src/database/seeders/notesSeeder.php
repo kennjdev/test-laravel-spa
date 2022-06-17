@@ -18,7 +18,7 @@ class notesSeeder extends Seeder
 
         for($i=0;$i<20;$i++){
             \App\Models\Note::create([
-                'content' =>Str::random(100),
+                'content' => 'Test Note Content #'.$i,
                 'user_id' => 1
             ]);
         }

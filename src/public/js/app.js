@@ -5450,7 +5450,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function AppContainer(props) {
-  console.log(props);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
     className: "container",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
@@ -5791,6 +5790,11 @@ function ListNotes(props) {
       notes = _useState2[0],
       setNotes = _useState2[1];
 
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState4 = _slicedToArray(_useState3, 2),
+      loading = _useState4[0],
+      setLoading = _useState4[1];
+
   var fetchNotes = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
       var response;
@@ -5824,13 +5828,15 @@ function ListNotes(props) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
-              _context2.next = 2;
+              setLoading(true);
+              _context2.next = 3;
               return axios["delete"]("".concat(_define__WEBPACK_IMPORTED_MODULE_3__.API_URL, "/notes/").concat(id));
 
-            case 2:
-              fetchNotes();
-
             case 3:
+              fetchNotes();
+              setLoading(false);
+
+            case 5:
             case "end":
               return _context2.stop();
           }
@@ -5846,7 +5852,6 @@ function ListNotes(props) {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     fetchNotes();
   }, []);
-  console.log(props);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
     className: "container",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
@@ -5886,6 +5891,7 @@ function ListNotes(props) {
                     onClick: function onClick(e) {
                       return deleteNote(item.id);
                     },
+                    className: loading ? 'disabled' : '',
                     children: "delete"
                   })]
                 })]
@@ -5986,7 +5992,9 @@ function NewNote(props) {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
           className: "col-md-8",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("form", {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+              children: "Add New Note"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
               className: "form-group",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
                 children: "Resource Type"

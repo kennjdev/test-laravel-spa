@@ -40,6 +40,7 @@ function NewNote(props) {
                 <div className="row justify-content-center">
                     <div className="col-md-8">
                         <form >
+                            <h2>Add New Note</h2>
                             <div className="form-group">
                                 <label>Resource Type</label>
                                 <input className="form-control"

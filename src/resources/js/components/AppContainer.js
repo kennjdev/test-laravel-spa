@@ -4,14 +4,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from './Login'
 import Dashboard from './DashBoard'
 import NewNote from './Note/NewNote';
-
 function AppContainer(props) {
-    console.log(props);
     return (
         <div className="container">
             <div className='row justify-content-center'>
                 <BrowserRouter>
-      
                     <Routes>
                         <Route index element={<Dashboard />} />
                         <Route path="login" element={<Login />} />
@@ -20,8 +17,6 @@ function AppContainer(props) {
                 </BrowserRouter>
             </div>
         </div>
-
-
     );
 }
 export default AppContainer;
