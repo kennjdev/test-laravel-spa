@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
+import Menu from '../Menu'
 function NewNote(props) {
     const [state, setState] = useState({
         content: '',
@@ -34,6 +35,7 @@ function NewNote(props) {
     }
     return (
         <React.Fragment>
+             <Menu/>
             <div className="container">
                 <div className="row justify-content-center">
                     <div className="col-md-8">
