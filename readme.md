@@ -1,8 +1,4 @@
 # setup
- link demo : http://test-spa-laravel.kendemo.com/ 
-
-
-
 ### docker
 cd docker </br>
 and run : docker-compose up -d
@@ -20,11 +16,14 @@ run : exit </br>
 
 ### react
 cd src </br>
-npm i </br>
-npm run dev
+npm i </br> 
+npm run dev </br>
 
 
+website will run on port 80, go to http://localhost and preview </br>
 
+
+ link demo : http://test-spa-laravel.kendemo.com/ 
 
 
 
